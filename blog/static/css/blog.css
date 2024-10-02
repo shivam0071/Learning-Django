@@ -1,0 +1,212 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and Main Content */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #002b36; /* Dark Green (Django Inspired Background) */
+  color: #fdf6e3; /* Light Beige Text */
+  padding: 20px;
+  transition: background-color 0.5s ease-in-out;
+}
+
+body:hover {
+  background-color: #01343c; /* Slightly lighter dark green */
+}
+
+#content {
+  width: 75%; /* Reduced width to give more space for the sidebar */
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  color: #2c3e50; /* Dark Slate for contrast */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/*
+#content:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+*/
+
+/* Blog Title */
+h1 {
+  text-align: center;
+  font-size: 36px;
+  color: #26a69a; /* Teal for heading */
+  margin-bottom: 30px;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 50px;
+  height: 4px;
+  background-color: #26a69a; /* Teal Accent */
+  transform: translateX(-50%);
+  transition: width 0.4s ease-in-out;
+}
+
+
+h1:hover::after {
+  width: 100px;
+}
+
+/* Blog Post Title */
+h2 a {
+  text-decoration: none;
+  color: #2c3e50; /* Dark Slate */
+  transition: color 0.3s ease-in-out;
+  position: relative;
+}
+
+h2 a:hover {
+  color: #26a69a; /* Teal */
+}
+
+h2 a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: #26a69a; /* Teal Accent */
+  transition: width 0.4s ease-in-out;
+}
+
+h2 a:hover::before {
+  width: 100%;
+}
+
+/* Date Style */
+.date {
+  font-size: 0.9em;
+  color: #839496; /* Light Grayish Blue */
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+/* Blog Post Text */
+p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeInUp 0.7s ease-in-out forwards;
+}
+
+/* Sidebar */
+#sidebar {
+  width: 250px;
+  position: fixed;
+  right: 10px;
+  top: 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+  color: #fff;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  z-index: 9999;
+}
+
+#sidebar:hover {
+  transform: scale(1.05);
+}
+
+#sidebar h2 {
+  font-size: 24px;
+  color: #fff; /* White */
+  margin-bottom: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+#sidebar h2:hover {
+  color: #26a69a; /* Teal Accent */
+}
+
+#sidebar p {
+  font-size: 1em;
+  color: #ddd; /* Light Gray */
+  transition: color 0.3s ease-in-out;
+}
+
+#sidebar p:hover {
+  color: #fff; /* Bright White */
+}
+
+/* Links */
+a {
+  color: #26a69a; /* Teal */
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+
+a:hover {
+  /*text-decoration: underline; */
+  color: #2c3e50; /* Dark Slate */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #content {
+    width: 100%;
+    padding: 10px;
+  }
+
+  #sidebar {
+    width: 90%;
+    position: static;
+    margin-top: 30px;
+    opacity: 1;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+}

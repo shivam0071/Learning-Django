@@ -1,0 +1,51 @@
+# model fields
+# https://docs.djangoproject.com/en/5.1/ref/models/fields/
+# https://docs.djangoproject.com/en/5.1/ref/models/
+
+# SQL Query of Migration
+python manage.py sqlmigrate blog 0001
+
+
+# Super User
+python manage.py createsuperuser
+admin
+
+
+
+# MODELS #
+# Manager Methods
+# Order Randomly
+Post.objects.order_by('?')
+
+# Inner Join via Foreign Key
+Post.objects.filter(author__username='admin')
+
+# For Complex Queries use Q object (for OR etc)
+ >>> from django.db.models import Q
+ >>> starts_who = Q(title__istartswith='who')
+ >>> starts_why = Q(title__istartswith='why')
+ >>> Post.objects.filter(starts_who | starts_why)
+
+ More on this - https://docs.djangoproject.com/en/5.0/topics/db/queries/#complex-lookups-with-q-objects.
+ More on Querysets - https://docs.djangoproject.com/en/5.0/ref/models/querysets/
+ More on Quries - https://docs.djangoproject.com/en/5.0/topics/db/queries/
+
+
+
+
+ # DJANGO TEMPLATE LANGUAGE
+ https://docs.djangoproject.com/en/5.0/ref/templates/language/
+ https://docs.djangoproject.com/en/5.0/ref/templates/builtins/
+
+ **************   TEMPLATE STUFF ***************
+     -- Built in Tags and Filters
+     https://docs.djangoproject.com/en/5.0/ref/templates/builtins/
+
+
+     ', '.join(list) equals
+     {{ post.tags.all|join:", " }}
+     {{ post.body|truncatewords:30|linebreaks }}
+
+     CUSTOM TAGS
+     • simple_tag: Processes the given data and returns a string
+     • inclusion_tag: Processes the given data and returns a rendered template
