@@ -20,6 +20,12 @@ Post.objects.order_by('?')
 # Inner Join via Foreign Key
 Post.objects.filter(author__username='admin')
 
+
+************** MIGRATIONS ***************
+    EMPTY MIGRATIONS
+    python manage.py makemigrations --name=trigram_ext --empty blog
+
+
 # For Complex Queries use Q object (for OR etc)
  >>> from django.db.models import Q
  >>> starts_who = Q(title__istartswith='who')
