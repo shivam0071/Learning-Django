@@ -49,3 +49,41 @@ Post.objects.filter(author__username='admin')
      CUSTOM TAGS
      • simple_tag: Processes the given data and returns a string
      • inclusion_tag: Processes the given data and returns a rendered template
+
+
+
+ **************   DOCKER STUFF ***************
+
+    docker run --name=blog_db -e POSRGRES_DB=blog -e POSTGRES_USER=blog -e POSTGRES_PASSWORD=xxxxx -p 5432:5432 -d postgres:16.2
+
+       POSTGRES_DB: Name of the PostgreSQL database. If not defined, the value of POSTGRES_USER is used for the database name.
+     • POSTGRES_USER: Used in conjunction with POSTGRES_PASSWORD to define a username and password. The user is created with superuser power.
+     • POSTGRES_PASSWORD: Sets the superuser password for PostgreSQL
+
+     The -e option is to define environment variables for the instance
+     The -p option is used to publish the 5432 port, on which PostgreSQL runs, to the same host interface port.
+     The -d option is for detached mode, which runs the Docker container in the background
+
+
+
+  **************  SQLLITE TO POSTGRES ***************
+
+        # Dumps existing model and data related into to Json file
+        python manage.py dumpdata --indent=2 --output=mysite_data.json
+        OR (if you get encoding error)
+        python -Xutf8 manage.py dumpdata --indent=2 --output=mysite_data.json
+
+        python manage.py migrate (to create the tables)
+        >>>> python manage.py loaddata mysite_data.json (to load the data)
+
+        # Advanced Text Search in Postgres
+        select
+            *
+        from
+            "blog_post"
+        where
+            to_tsvector(coalesce("blog_post"."title", '')) @@ (plainto_tsquery('django'))
+        order by
+            "blog_post"."publish" desc;
+
+          More - https://docs.djangoproject.com/en/5.0/ref/contrib/postgres/search/#searchvector

@@ -27,7 +27,7 @@ def get_most_commented_posts(count=5):
     #     '-total_comments').values_list('post_id', flat=True)
     #
     # return Post.published.filter(id__in=post_with_comments)[:count]
-    return Post.objects.annotate(active_comments_count=Count('comments', filter=Q(comments__active=True))).filter(
+    return Post.published.annotate(active_comments_count=Count('comments', filter=Q(comments__active=True))).filter(
         active_comments_count__gte=1).order_by(
         '-active_comments_count')[:count]
     # return Post.published.annotate(
