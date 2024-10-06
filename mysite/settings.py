@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     'taggit',
-    'blog'
+    'blog',
+    'isocal'
 ]
 
 MIDDLEWARE = [
