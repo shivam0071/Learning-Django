@@ -1,0 +1,139 @@
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4ebe3; /* Light beige background */
+    color: #5d4037; /* Dark brown text */
+    line-height: 1.6;
+}
+
+/* Content styling */
+#content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1, h2 {
+    color: #3e2723; /* Dark brown heading color */
+}
+
+/* Paragraph styling */
+p {
+    margin: 10px 0;
+}
+
+/* Calculator sections */
+#calculator, #calculator2 {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #a1887f; /* Light brown border */
+    border-radius: 8px;
+    background-color: #efebe9; /* Very light brown background */
+}
+
+h2 {
+    border-bottom: 2px solid #795548; /* Medium brown underline */
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="number"],
+select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #a1887f; /* Light brown border */
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    background-color: #6d4c41; /* Brown button */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #5d4037; /* Dark brown on hover */
+}
+
+/* Hidden token input */
+input[type="hidden"] {
+    display: none;
+}
+
+/* Found date styling */
+h2 + h2 {
+    margin-top: 20px;
+    color: #5d4037; /* Dark brown for the second heading */
+    font-weight: normal;
+}
+
+#random-theme-btn {
+    width: 150px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    #content {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.25em;
+    }
+
+    input[type="number"],
+    select,
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    form {
+        flex-direction: column;
+    }
+}

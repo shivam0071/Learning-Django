@@ -1,0 +1,15 @@
+<div id="date_to_iso">
+<form method="post" action="{% url 'isocal:homepage' %}#submit-area" >
+    {{ form2.as_p }}
+     {% csrf_token %}
+    <div id="submit-area">
+        {% if result2 %}
+            <h2>{{ result2 }} </h2>
+        {% endif %}
+    </div>
+    {% if exception %}
+        <h3>{{ exception }} </h3>
+    {% endif %}
+  <input type="submit" value="Calculate">
+</form>
+</div>

@@ -1,0 +1,29 @@
+{% extends "isocal/base.html" %}
+{% block title %}ISO Calendar{% endblock %}
+{% block content %}
+<div class="container">
+<h1>ISO Calculator</h1>
+<form id="random-theme-btn" method="post" action="{% url 'isocal:homepage' %}">
+  {% csrf_token %}
+  <input type="submit" value="Random Theme">
+</form>
+</div>
+<p>The calculator converts ISO date to Gregorian date and vice versa.
+<p>The ISO calendar date consists of three parts: year (almost the same as a Gregorian year),
+week number (1-53), and day within a week (1-7). The first week of a year is the week of the first Thursday.
+The last week is the week immediately before the first week of the next year. Every week starts on Monday.
+So ISO calendar new year may start 1-3 days before the Gregorian new year or 1-3 days later. E.g. a new 2020 year
+by ISO calendar starts 2 days before, on December 30.
+The calculator below converts ISO date to Gregorian date.</p>
+
+<div id="calculator">
+  <h2>ISO calendar date to Gregorian date</h2>
+  {% include "isocal/home/includes/iso_to_date_form.html" %}
+</div>
+
+<div id="calculator2">
+  <h2>Gregorian date to ISO calendar date</h2>
+  {% include "isocal/home/includes/date_to_iso_form.html" %}
+</div>
+
+{% endblock %}

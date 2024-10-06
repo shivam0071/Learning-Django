@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% if theme %}
+     <link href="{% static 'css/'|add:theme %}" rel="stylesheet">
+  {% else %}
+      <link href="{% static "css/sunset_orange.css" %}" rel="stylesheet">
+  {% endif %}
+</head>
+<body>
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+</body>
+</html>
